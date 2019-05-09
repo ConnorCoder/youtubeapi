@@ -12,11 +12,11 @@ $(document).ready(function(){
 function run() {
   if (document.getElementById('option').value === "sub") {
     var id = document.getElementById('input').value;
-    window.location.href = window.location.href + "?sub=" + id;
+    window.location.href = "https://connorcoder.github.io/youtubeapi/?sub" + id;
   }
   if (document.getElementById('option').value === "view") {
     var id = document.getElementById('input').value;
-    window.location.href = window.location.href + "?view=" + id;
+    window.location.href = "https://connorcoder.github.io/youtubeapi/?view=" + id;
   }
 }
 
@@ -29,11 +29,10 @@ function live(id) {
   function update() {
     $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=AIzaSyCSQDB4r8dpeY5AssTLnUMnaRyUmBGZjKE", function(data) {
       console.log(data);
-      var x = JSON.stringify(data.items).split("\"");
       if (windowhref.indexOf('?sub') >= 0) {
-        document.getElementById('count').innerHTML = x[27];
+        document.getElementById('count').innerHTML = data.items['0'].statistics.subscriberCount;
       }else if (windowhref.indexOf('?view') >= 0){
-        document.getElementById('count').innerHTML = x[19];
+        document.getElementById('count').innerHTML = data.items['0'].statistics.viewCount;
       }
     })
   }setInterval(update(), 10000);
