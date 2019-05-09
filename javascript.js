@@ -1,3 +1,10 @@
+var window = window.location.href;
+
+if (window.indexOf("?live") >= 0) {
+  document.getElementById('live').style.display = "block";
+  document.getElementById('nolive').style.display = "none";
+}
+
 function run() {
   var id = document.getElementById('input').value;
 $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=AIzaSyCSQDB4r8dpeY5AssTLnUMnaRyUmBGZjKE", function(data) {
