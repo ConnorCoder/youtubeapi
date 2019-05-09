@@ -34,6 +34,6 @@ function live(id) {
       }else if (windowhref.indexOf('?view') >= 0){
         document.getElementById('count').innerHTML = data.items['0'].statistics.viewCount;
       }
-    })
-  }setInterval(update(), 10000);
+    });
+  }setInterval(update, 10000);
 }
