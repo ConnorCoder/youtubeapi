@@ -21,13 +21,13 @@ function run() {
 }
 
 //Get Information
-//$.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=AIzaSyCSQDB4r8dpe&5AssTLnUMnaRyUmBGZjKE", function(data) {
+//$.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=AIzaSyCSQDB4r8dpeY5AssTLnUMnaRyUmBGZjKE", function(data) {
 //  var x = JSON.stringify(data.items).split("\"");
 //}) 27 = Sub count, 19 = View count
 
 function live(id) {
   function update() {
-    $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=AIzaSyCSQDB4r8dpe&5AssTLnUMnaRyUmBGZjKE", function(data) {
+    $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=AIzaSyCSQDB4r8dpeY5AssTLnUMnaRyUmBGZjKE", function(data) {
       var x = JSON.stringify(data.items).split("\"");
       if (windowhref.indexOf('?sub') >= 0) {
         document.getElementById('count').innerHTML = x[27];
