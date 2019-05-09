@@ -4,7 +4,7 @@ $(document).ready(function(){
   if ((windowhref.indexOf("?sub") >= 0) || (windowhref.indexOf("?view") >= 0)) {
     document.getElementById('live').style.display = "block";
     document.getElementById('nolive').style.display = "none";
-    var id = windowhref.slice(windowhref.indexOf("="));
+    var id = windowhref.slice(windowhref.indexOf("=") + 1);
     live(id); //Broadcast for live sub/view count
   }
 });
