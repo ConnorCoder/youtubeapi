@@ -1,9 +1,11 @@
 var windowhref = window.location.href;
 
-if (windowhref.indexOf("?live") >= 0) {
-  document.getElementById('live').style.display = "block";
-  document.getElementById('nolive').style.display = "none";
-}
+$(document).ready(function(){
+  if (windowhref.indexOf("?live") >= 0) {
+    document.getElementById('live').style.display = "block";
+    document.getElementById('nolive').style.display = "none";
+  }
+});
 
 function run() {
   var id = document.getElementById('input').value;
