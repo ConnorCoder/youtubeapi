@@ -28,6 +28,7 @@ function run() {
 function live(id) {
   function update() {
     $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=AIzaSyCSQDB4r8dpeY5AssTLnUMnaRyUmBGZjKE", function(data) {
+      console.log(data);
       var x = JSON.stringify(data.items).split("\"");
       if (windowhref.indexOf('?sub') >= 0) {
         document.getElementById('count').innerHTML = x[27];
@@ -35,5 +36,5 @@ function live(id) {
         document.getElementById('count').innerHTML = x[19];
       }
     })
-  }setInterval(update(), 10000)
+  }setInterval(update(), 10000);
 }
