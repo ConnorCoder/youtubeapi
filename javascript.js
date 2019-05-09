@@ -1,5 +1,7 @@
 var windowhref = window.location.href;
 
+//https://jsbin.com/veyuwigete/1/edit?html,css,output
+
 $(document).ready(function(){
   if ((windowhref.indexOf("?sub") >= 0) || (windowhref.indexOf("?view") >= 0)) {
     document.getElementById('live').style.display = "block";
