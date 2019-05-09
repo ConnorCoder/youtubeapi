@@ -1,6 +1,6 @@
-var window = window.location.href;
+var windowhref = window.location.href;
 
-if (window.indexOf("?live") >= 0) {
+if (windowhref.indexOf("?live") >= 0) {
   document.getElementById('live').style.display = "block";
   document.getElementById('nolive').style.display = "none";
 }
