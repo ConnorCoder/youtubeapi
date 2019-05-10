@@ -40,11 +40,11 @@ function datachart(txt) {
 function run() {
   if (document.getElementById('option').value === "sub") {
     var id = document.getElementById('input').value;
-    window.location.href = "https://connorcoder.github.io/youtubeapi/?sub=" + id;
+    window.location.href = "https://connorcoder.github.io/youtubeapi/#60000?sub=" + id;
   }
   if (document.getElementById('option').value === "view") {
     var id = document.getElementById('input').value;
-    window.location.href = "https://connorcoder.github.io/youtubeapi/?view=" + id;
+    window.location.href = "https://connorcoder.github.io/youtubeapi/#60000?view=" + id;
   }
 }
 
