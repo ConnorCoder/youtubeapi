@@ -14,7 +14,7 @@ $(document).ready(function(){
   }
 });
 
-function chart(txt) {
+function datachart(txt) {
   var ctx = document.getElementById('myChart').getContext('2d');
   var chart = new Chart(ctx, {
       // The type of chart we want to create
@@ -66,18 +66,18 @@ function live(id) {
         info.shift();
         if (windowhref.indexOf('?sub') >= 0) {
           info.push(data.items['0'].statistics.subscriberCount);
-          chart('Total Subscribers');
+          datachart('Total Subscribers');
         }else if (windowhref.indexOf('?view') >= 0) {
           info.push(data.items['0'].statistics.viewCount);
-          chart('Total Views');
+          datachart('Total Views');
         }
       }else {
         if (windowhref.indexOf('?sub') >= 0) {
           info.push(data.items['0'].statistics.subscriberCount);
-          chart('Total Subscribers');
+          datachart('Total Subscribers');
         }else if (windowhref.indexOf('?view') >= 0) {
           info.push(data.items['0'].statistics.viewCount);
-          chart('Total Views');
+          datachart('Total Views');
         }
       }
       if (windowhref.indexOf('?sub') >= 0) {
