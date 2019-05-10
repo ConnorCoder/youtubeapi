@@ -56,7 +56,7 @@ function live(id) {
   function update() {
     $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=AIzaSyCSQDB4r8dpeY5AssTLnUMnaRyUmBGZjKE", function(data) {
       var date = new Date();
-      if (timestamp.lengh >= 5) {
+      if (timestamp.length >= 5) {
         timestamp.shift();
         timestamp.push(date.getHours() + ":" + date.getMinutes());
       }else {
