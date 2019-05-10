@@ -31,8 +31,10 @@ function live(id) {
   function update() {
     $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=AIzaSyCSQDB4r8dpeY5AssTLnUMnaRyUmBGZjKE", function(data) {
       if (windowhref.indexOf('?sub') >= 0) {
+        document.getElementsByTagName('h3')[0].innerHTML = "Live Subscriber Count";
         var num = data.items['0'].statistics.subscriberCount;
       }else if (windowhref.indexOf('?view') >= 0){
+        document.getElementsByTagName('h3')[0].innerHTML = "Live Viewer Count";
         var num = data.items['0'].statistics.viewCount;
       }
       for (x = num.length;x<12;x++) {
