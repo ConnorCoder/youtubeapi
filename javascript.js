@@ -107,6 +107,6 @@ function live(id) {
       if (document.getElementsByClassName('tenbillion')[0].innerHTML != reverse[10]) {$(function() {$('.tenbillion').fadeOut(1000, function() {$(this).text(reverse[10]).fadeIn(1000);});});}
       if (document.getElementsByClassName('hundredbillion')[0].innerHTML != reverse[11]) {$(function() {$('.hundredbillion').fadeOut(1000, function() {$(this).text(reverse[10]).fadeIn(1000);});});}
     });
-  }setInterval(update, updatespeed);
+  }setInterval(update, parseInt(updatespeed));
   update();
 }
