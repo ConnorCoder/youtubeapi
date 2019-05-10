@@ -1,4 +1,7 @@
 var windowhref = window.location.href;
+var timestamp = [];
+var info = [];
+
 
 //https://jsbin.com/veyuwigete/1/edit?html,css,output
 
@@ -10,6 +13,28 @@ $(document).ready(function(){
     live(id); //Broadcast for live sub/view count
   }
 });
+
+function chart(txt) {
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: 'line',
+
+      // The data for our dataset
+      data: {
+          labels: timestamp,
+          datasets: [{
+              label: txt,
+              backgroundColor: 'rgb(99, 132, 255)',
+              borderColor: 'rgb(0, 0, 0)',
+              data: info
+          }]
+      },
+
+      // Configuration options go here
+      options: {}
+  });
+}
 
 function run() {
   if (document.getElementById('option').value === "sub") {
@@ -30,6 +55,31 @@ function run() {
 function live(id) {
   function update() {
     $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=AIzaSyCSQDB4r8dpeY5AssTLnUMnaRyUmBGZjKE", function(data) {
+      var date = new Date();
+      if (timestamp.lengh >= 5) {
+        timestamp.shift();
+        timestamp.push(date.getHours() + ":" + date.getMinutes());
+      }else {
+        timestamp.push(date.getHours() + ":" + date.getMinutes());
+      }
+      if (info.length >= 5) {
+        info.shift();
+        if (windowhref.indexOf('?sub') >= 0) {
+          info.push(data.items['0'].statistics.subscriberCount);
+          chart('Total Subscribers');
+        }else if (windowhref.indexOf('?view') >= 0) {
+          info.push(data.items['0'].statistics.viewCount);
+          chart('Total Views');
+        }
+      }else {
+        if (windowhref.indexOf('?sub') >= 0) {
+          info.push(data.items['0'].statistics.subscriberCount);
+          chart('Total Subscribers');
+        }else if (windowhref.indexOf('?view') >= 0) {
+          info.push(data.items['0'].statistics.viewCount);
+          chart('Total Views');
+        }
+      }
       if (windowhref.indexOf('?sub') >= 0) {
         document.getElementsByTagName('h3')[0].innerHTML = "Live Subscriber Count";
         var num = data.items['0'].statistics.subscriberCount;
