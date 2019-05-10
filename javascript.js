@@ -1,7 +1,8 @@
 var windowhref = window.location.href;
 var timestamp = [];
 var info = [];
-var updatespeed = [60000];
+
+var updatespeed = [windowhref.slice(windowhref.indexOf('#') + 1, windowhref.indexOf('?'))];
 
 //https://jsbin.com/veyuwigete/1/edit?html,css,output
 
@@ -54,7 +55,6 @@ function run() {
 
 function live(id) {
   function update() {
-    endInterval(xyz);
     $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=AIzaSyCSQDB4r8dpeY5AssTLnUMnaRyUmBGZjKE", function(data) {
       var date = new Date();
       if (timestamp.length >= 5) {
@@ -107,8 +107,7 @@ function live(id) {
       if (document.getElementsByClassName('billion')[0].innerHTML != reverse[9]) {$(function() {$('.billion').fadeOut(1000, function() {$(this).text(reverse[9]).fadeIn(1000);});});}
       if (document.getElementsByClassName('tenbillion')[0].innerHTML != reverse[10]) {$(function() {$('.tenbillion').fadeOut(1000, function() {$(this).text(reverse[10]).fadeIn(1000);});});}
       if (document.getElementsByClassName('hundredbillion')[0].innerHTML != reverse[11]) {$(function() {$('.hundredbillion').fadeOut(1000, function() {$(this).text(reverse[10]).fadeIn(1000);});});}
-      var xyz = setInterval(update, parseInt(updatespeed[0]));
     });
-  }
-  var xyz = setInterval(update, 500);
+  }setInterval(update, parseInt(updatespeed[0]));
+  update();
 }
