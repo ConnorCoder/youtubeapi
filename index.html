@@ -8,7 +8,7 @@
   <title>Youtube API V3</title>
 </head>
 <body>
-  <div id="nolive">
+  <div id="nolive" style="display: none">
     <span>Youtube API V3</span> <br>
     <input id="input" placeholder="Channel ID"></input>
     <select id="option">
@@ -17,8 +17,20 @@
     </select>
     <button onclick="run()">Search</button> <br>
   </div>
-  <div id="live" style="display: none">
-    <span id="count"></span>
+  <div id="live" style="display: block">
+    <h3>Live Subscriber Count</h3>
+    <span class="number hundredbillion">0</span>
+    <span class="number tenbillion">0</span>
+    <span class="number billion">0</span>
+    <span class="number hundredmillion">0</span>
+    <span class="number tenmillion">0</span>
+    <span class="number million">0</span>
+    <span class="number hundredthousand">0</span>
+    <span class="number tenthousand">0</span>
+    <span class="number thousand">0</span>
+    <span class="number hundred">0</span>
+    <span class="number ten">0</span>
+    <span class="number one">0</span>
   </div>
 </body>
 </html>
