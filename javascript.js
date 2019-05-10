@@ -54,6 +54,8 @@ function run() {
 
 function live(id) {
   function update() {
+    endInterval(xyz);
+    var xyz = setInterval(update, parseInt(updatespeed[0]));
     $.getJSON("https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=AIzaSyCSQDB4r8dpeY5AssTLnUMnaRyUmBGZjKE", function(data) {
       var date = new Date();
       if (timestamp.length >= 5) {
@@ -107,6 +109,6 @@ function live(id) {
       if (document.getElementsByClassName('tenbillion')[0].innerHTML != reverse[10]) {$(function() {$('.tenbillion').fadeOut(1000, function() {$(this).text(reverse[10]).fadeIn(1000);});});}
       if (document.getElementsByClassName('hundredbillion')[0].innerHTML != reverse[11]) {$(function() {$('.hundredbillion').fadeOut(1000, function() {$(this).text(reverse[10]).fadeIn(1000);});});}
     });
-  }setInterval(update, parseInt(updatespeed[0]));
+  }
   update();
 }
